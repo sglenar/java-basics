@@ -37,10 +37,29 @@ public class NumbersArray {
         return array;
         }
 
-
     // task 4
     public static int[] generatePrimeNumbers(int count) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        int[] array = new int[count];
+        int i = 0;
+        int j = 2;
+        while (i < count) {
+            if (isPrimeNumber(j)) {
+                array[i] = j;
+                i++;
+                j++;
+            } else {
+                j++;
+            }
+        }
+        return array;
+    }
+    private static boolean isPrimeNumber(int number) {
+        for (int i = 2; i*i <= number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     // task 5

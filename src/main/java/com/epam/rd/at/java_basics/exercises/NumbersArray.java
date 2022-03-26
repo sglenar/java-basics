@@ -108,20 +108,25 @@ public class NumbersArray {
                         break;
                     }
                 }
-                if (!isUnique) {
-                    break;
-                } else {
+                if (isUnique) {
                     uniqueDigitsNumberCounter += 1;
                     break;
+                }
+                break;
             }
         }
-    }
         return  uniqueDigitsNumberCounter;
     }
 
     // task 7
     public static int[][] rotateArray(int[][] array) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        int[][] resultArray = new int[array[0].length][array.length];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                resultArray[j][array.length - i - 1] = array[i][j];
+            }
+        }
+        return resultArray;
     }
 
     // task 8

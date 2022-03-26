@@ -64,12 +64,60 @@ public class NumbersArray {
 
     // task 5
     public static int countNumbersWithEqualCountOfEvenAndOddDigits(int[] array) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        int equalCounter = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (countOddDigits(array[i]) == countEvenDigits(array[i])) {
+                equalCounter += 1;
+            }
+        }
+        return equalCounter;
+    }
+    private static int countEvenDigits(int number) {
+        int evenDigitsNumber = 0;
+        while (number / 10 >= 1) {
+            int intermediateNumber = 0;
+            intermediateNumber = number % 10;
+            if (intermediateNumber % 2 == 0) {
+                evenDigitsNumber  += intermediateNumber;
+            }
+            number /= number;
+        }
+        return evenDigitsNumber;
+    }
+    private static int countOddDigits(int number) {
+        int oddDigitsNumber = 0;
+        while (number / 10 >= 1) {
+            int intermediateNumber = 0;
+            intermediateNumber = number % 10;
+            if (intermediateNumber % 2 == 1) {
+                oddDigitsNumber  += intermediateNumber;
+            }
+            number /= number;
+        }
+        return oddDigitsNumber;
     }
 
     // task 6
     public static int countNumbersWithOnlyUniqueDigits(int[] array) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        int uniqueDigitsNumberCounter = 0;
+        for (int element : array) {
+            boolean isUnique = true;
+            char[] chars = String.valueOf(Math.abs(element)).toCharArray();
+            for (int i = 0; i < chars.length - 1; i++) {
+                for (int j = i + 1; j < chars.length; j++) {
+                    if (chars[i] == chars[j]) {
+                        isUnique = false;
+                        break;
+                    }
+                }
+                if (!isUnique) {
+                    break;
+                } else {
+                    uniqueDigitsNumberCounter += 1;
+            }
+        }
+    }
+        return  uniqueDigitsNumberCounter;
     }
 
     // task 7

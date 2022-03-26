@@ -65,8 +65,8 @@ public class NumbersArray {
     // task 5
     public static int countNumbersWithEqualCountOfEvenAndOddDigits(int[] array) {
         int equalCounter = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (countOddDigits(array[i]) == countEvenDigits(array[i])) {
+        for (int j : array) {
+            if (countOddDigits(j) == countEvenDigits(j)) {
                 equalCounter += 1;
             }
         }
@@ -114,6 +114,7 @@ public class NumbersArray {
                     break;
                 } else {
                     uniqueDigitsNumberCounter += 1;
+                    break;
             }
         }
     }

@@ -75,8 +75,7 @@ public class NumbersArray {
     private static int countEvenDigits(int number) {
         int evenDigitsNumber = 0;
         while (number / 10 >= 1) {
-            int intermediateNumber = 0;
-            intermediateNumber = number % 10;
+            int intermediateNumber = number % 10;
             if (intermediateNumber % 2 == 0) {
                 evenDigitsNumber  += intermediateNumber;
             }
@@ -87,8 +86,7 @@ public class NumbersArray {
     private static int countOddDigits(int number) {
         int oddDigitsNumber = 0;
         while (number / 10 >= 1) {
-            int intermediateNumber = 0;
-            intermediateNumber = number % 10;
+            int intermediateNumber = number % 10;
             if (intermediateNumber % 2 == 1) {
                 oddDigitsNumber  += intermediateNumber;
             }

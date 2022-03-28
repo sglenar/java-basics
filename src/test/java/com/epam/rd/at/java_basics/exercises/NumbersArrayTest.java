@@ -94,6 +94,7 @@ public class NumbersArrayTest {
         expected.put(0, 3);
         Map<Integer, Integer> result = Stream.of(NumbersArray.findDuplicates(array)).collect(Collectors.toMap(r -> r[0], r -> r[1]));
         assertEquals(expected, result, "Result is incorrect for array: " + Arrays.toString(array));
+        System.out.println();
     }
 
 }

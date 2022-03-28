@@ -131,7 +131,35 @@ public class NumbersArray {
 
     // task 8
     public static int[][] findDuplicates(int[] array) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        int[][] resultArray = new int[array.length][2];
+        for (int i = 0; i < array.length; i++) {
+            if (!isNumberAlreadyAdded(array[i], resultArray)) {
+                resultArray[i][0] = array[i];
+                resultArray[i][1] = numberFrequency(array[i], array);
+            }
+                }
+        return resultArray;
+    }
+
+    private static int numberFrequency (int number, int[] array) {
+        int result = 0;
+        for (int element:array) {
+            if (element == number){
+                result += 1;
+            }
+        }
+        return result;
+    }
+    private static boolean isNumberAlreadyAdded (int number, int[][] array) {
+        boolean isNumberWasAdded = false;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i][0] == number) {
+                isNumberWasAdded = true;
+                break;
+            }
+            break;
+        }
+        return isNumberWasAdded;
     }
 
 

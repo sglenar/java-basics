@@ -4,7 +4,28 @@ public class StringsArray {
 
     // task 1
     public static String findShortestString(String[] array) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        String shortestElement = findFirstNotNull(array);
+        if (shortestElement == null) {
+            return null;
+        } else if (array.length > 0) {
+            for (String element : array) {
+                if (element.length() <= shortestElement.length() && element.length() > 0) {
+                    shortestElement = element;
+                }
+            }
+        }
+        return shortestElement;
+    }
+
+    private static String findFirstNotNull(String[] array) {
+        String firstNotNullElement = new String();
+        for (String element : array) {
+            if (element.length() > 0) {
+                firstNotNullElement = element;
+                return firstNotNullElement;
+            }
+        }
+        return null;
     }
 
     // task 2

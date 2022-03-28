@@ -131,13 +131,17 @@ public class NumbersArray {
 
     // task 8
     public static int[][] findDuplicates(int[] array) {
-        int[][] resultArray = new int[array.length][2];
+        int[][] resultArray = new int[0][2];
         for (int i = 0; i < array.length; i++) {
-            if (!isNumberAlreadyAdded(array[i], resultArray)) {
-                resultArray[i][0] = array[i];
-                resultArray[i][1] = numberFrequency(array[i], array);
-            }
+            if (!isNumberAlreadyAdded(array[i], resultArray )) {
+                int numberOfItems = numberFrequency(array[i], array);
+                if (numberOfItems > 1) {
+                    resultArray = changeArray(resultArray);
+                    resultArray[resultArray.length-1][0] = array[i];
+                    resultArray[resultArray.length-1][1] = numberOfItems;
                 }
+            }
+        }
         return resultArray;
     }
 
@@ -151,16 +155,21 @@ public class NumbersArray {
         return result;
     }
     private static boolean isNumberAlreadyAdded (int number, int[][] array) {
-        boolean isNumberWasAdded = false;
         for (int i = 0; i < array.length; i++) {
             if (array[i][0] == number) {
-                isNumberWasAdded = true;
-                break;
+                return true;
             }
-            break;
         }
-        return isNumberWasAdded;
+        return false;
     }
 
-
+    private static int[][] changeArray (int[][] array) {
+        int[][] result = new int[array.length+1][2];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < 2; j++) {
+                result[i][j] = array[i][j];
+            }
+        }
+        return  result;
+    }
 }

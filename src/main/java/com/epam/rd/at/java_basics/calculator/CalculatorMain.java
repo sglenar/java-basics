@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CalculatorMain {
 
     public static void main(String[] args) {
-        int result = 0;
+        double result = 0;
         String plus = "+";
         String minus = "-";
         String multipl = "*";
@@ -25,6 +25,7 @@ public class CalculatorMain {
             result = multiplication(numberA,numberB);
         } else if (operator.equals(divis)) {
             result = division(numberA,numberB);
+            return;
         }
         System.out.println("Result = " + result);
 
@@ -33,21 +34,22 @@ public class CalculatorMain {
 
     }
 
-    private static int sum(int a, int b) {
+    private static double sum(int a, int b) {
         return a+b;
     }
-    private static int  difference (int a, int b) {
+    private static double  difference (int a, int b) {
         return a-b;
     }
-    private static int multiplication (int a, int b) {
+    private static double multiplication (int a, int b) {
         return a*b;
     }
-    private static int division (int a, int b) {
-        int result = 0;
+    private static double division (int a, int b) {
+        double result = 0;
         try {
             result = a/b;
         } catch (ArithmeticException e) {
             System.out.println("Error: divide by zero");
+            //return null;
         }
         return  result;
     }
